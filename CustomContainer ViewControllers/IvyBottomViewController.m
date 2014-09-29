@@ -53,6 +53,7 @@
     
     [UIView animateWithDuration:0.35 animations:^{
         self.view.center = CGPointMake(160, 568*1.5);
+        [self.parentViewController setValue:@0.0 forKeyPath:@"blur.alpha"];
     } completion:^(BOOL finished) {
         self.view.tag = 0;
     }];

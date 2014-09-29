@@ -41,6 +41,10 @@
     [super viewDidLoad];
     self.view.backgroundColor =[UIColor redColor];
     
+    self.blur = [[UIView alloc] initWithFrame:self.view.frame];
+    self.blur.backgroundColor = [UIColor whiteColor];
+    self.blur.alpha = 0;
+    
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(50, 50, 50, 50)];
     
     btn.backgroundColor = [UIColor whiteColor];
@@ -53,6 +57,8 @@
     
     [btn1 addTarget:self action:@selector(presentBottomViewController) forControlEvents:UIControlEventTouchUpInside];
     
+    
+    [self.view addSubview:self.blur];
     [self.view addSubview:btn1];
     [self.view addSubview:btn];
 
@@ -77,6 +83,7 @@
     [UIView animateWithDuration:0.35 animations:^{
         
         self.left.view.center = CGPointMake(160, 284);
+        self.blur.alpha = 0.3;
     } completion:^(BOOL finished) {
         self.view.tag = 3;
         
@@ -106,6 +113,7 @@
     [UIView animateWithDuration:0.35 animations:^{
         
         self.bottom.view.center = CGPointMake(160, 284);
+        self.blur.alpha = 0.3;
     } completion:^(BOOL finished) {
         self.view.tag = 0;
         
