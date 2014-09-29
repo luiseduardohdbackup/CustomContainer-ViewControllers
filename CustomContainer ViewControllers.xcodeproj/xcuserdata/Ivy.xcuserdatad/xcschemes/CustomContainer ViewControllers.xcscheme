@@ -38,6 +38,16 @@
                ReferencedContainer = "container:CustomContainer ViewControllers.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CA6B2DD919D9203F003F8E84"
+               BuildableName = "Test-&#x62bd;&#x5c49;Tests.xctest"
+               BlueprintName = "Test-&#x62bd;&#x5c49;Tests"
+               ReferencedContainer = "container:CustomContainer ViewControllers.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

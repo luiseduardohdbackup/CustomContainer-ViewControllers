@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol sideMenuViewDelegate;
+
 @interface IvyBottomViewController : UIViewController
+
+@property (nonatomic, weak) id<sideMenuViewDelegate> delegate;
 
 @end

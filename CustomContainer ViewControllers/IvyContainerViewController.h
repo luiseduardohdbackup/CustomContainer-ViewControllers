@@ -10,12 +10,24 @@
 
 @interface IvyContainerViewController : UIViewController
 
-@property (nonatomic, strong) UIViewController *left;
-@property (nonatomic, strong) UIViewController *bottom;
-
+@property (nonatomic, strong) UIViewController *leftController;
+@property (nonatomic, strong) UIViewController *bottomController;
 @property (nonatomic, strong) UIView *blur;
+
 
 - (id)initWithLeftViewController:(UIViewController *)left BottomViewController:(UIViewController *)bottom;
 
+@end
+
+
+#pragma mark menu切换代理方法
+@protocol sideMenuViewDelegate <NSObject>
+
+@optional
+- (void)showLeftView;
+- (void)hideLeftView;
+
+- (void)showBottomView;
+- (void)hideBottomView;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "IvyLeftViewController.h"
+#import "IvyContainerViewController.h"
 
 @interface IvyLeftViewController ()
 
@@ -27,41 +28,16 @@
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor clearColor];
+    // 初始化leftViewController
+    self.view.frame = CGRectMake(0, 0, 260, 568);
+    self.view.backgroundColor = [UIColor purpleColor];
     
+    // 添加返回Button
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(50, 50, 50, 50)];
-    
     btn.backgroundColor = [UIColor whiteColor];
-    
-    [btn addTarget:self action:@selector(dismissViewController) forControlEvents:UIControlEventTouchUpInside];
-    self.view.center = CGPointMake(-160, 284);
-    UIView *leftPart = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 568)];
-    
-    leftPart.backgroundColor = [UIColor blueColor];
-    
-    [self.view addSubview:leftPart];
+    [btn addTarget:self.delegate action:@selector(hideLeftView) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
-}
-
-- (void)dismissViewController {
-    
-    if (self.view.tag == 1) {
-        return;
-    }
-    
-    self.view.tag = 1;
-    
-    [UIView beginAnimations:nil context:nil];
-    
-    [UIView animateWithDuration:0.35 animations:^{
-        self.view.center = CGPointMake(-160, 284);
-        [self.parentViewController setValue:@0.0 forKeyPath:@"blur.alpha"];
-    } completion:^(BOOL finished) {
-        self.view.tag = 0;
-    }];
-    
-    [UIView commitAnimations];
 }
 
 @end

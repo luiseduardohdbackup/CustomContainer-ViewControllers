@@ -15,11 +15,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    // 加载viewController
     IvyLeftViewController *left = [[IvyLeftViewController alloc] init];
     IvyBottomViewController *bottom = [[IvyBottomViewController alloc] init];
     
+    // 初始化ContainerController
     IvyContainerViewController *root = [[IvyContainerViewController alloc] initWithLeftViewController:left BottomViewController:bottom];
     
+    // 设置rootViewController
     self.window.rootViewController = root;
     
     return YES;
