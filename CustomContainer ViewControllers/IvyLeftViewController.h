@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IvyLeftViewController : UIViewController
+@interface IvyLeftViewController :UIViewController
 
 @end

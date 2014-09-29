@@ -10,4 +10,10 @@
 
 @interface IvyContainerViewController : UIViewController
 
+@property (nonatomic, strong) UIViewController *left;
+@property (nonatomic, strong) UIViewController *bottom;
+
+- (id)initWithLeftViewController:(UIViewController *)left BottomViewController:(UIViewController *)bottom;
+
+
 @end

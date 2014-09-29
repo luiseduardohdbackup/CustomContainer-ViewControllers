@@ -8,13 +8,20 @@
 
 #import "IvyAppDelegate.h"
 #import "IvyContainerViewController.h"
+#import "IvyLeftViewController.h"
+#import "IvyBottomViewController.h"
 
 @implementation IvyAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    self.window.rootViewController = [[IvyContainerViewController alloc] init];
+    IvyLeftViewController *left = [[IvyLeftViewController alloc] init];
+    IvyBottomViewController *bottom = [[IvyBottomViewController alloc] init];
+    
+    IvyContainerViewController *root = [[IvyContainerViewController alloc] initWithLeftViewController:left BottomViewController:bottom];
+    
+    self.window.rootViewController = root;
+    
     return YES;
 }
 							

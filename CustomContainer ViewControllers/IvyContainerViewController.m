@@ -25,6 +25,17 @@
     return self;
 }
 
+- (id)initWithLeftViewController:(UIViewController *)left BottomViewController:(UIViewController *)bottom {
+    
+    if (self = [super init]) {
+        
+        self.left = left;
+        self.bottom = bottom;
+    }
+
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -48,27 +59,30 @@
 }
 
 - (void)presentLeftViewController {
-    NSLog(@"-----Left");
+    if (self.view.tag == 2) {
+        return;
+    }
     
-    IvyLeftViewController *left = [[IvyLeftViewController alloc] init];
+    self.view.tag = 2;
     
-    [self addChildViewController:left];
+    [self addChildViewController:self.left];
     
-//    left.view.frame = self.view.frame;
+    [self.view addSubview:self.left.view];
     
-    [self.view addSubview:left.view];
+    [self.left didMoveToParentViewController:self];
     
-    [left didMoveToParentViewController:self];
+    [self.left beginAppearanceTransition:YES animated:YES];
     
-    [left beginAppearanceTransition:YES animated:YES];
-    
-//    [left transitionFromViewController:self toViewController:left duration:0.35 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
-//    
-//    } completion:^(BOOL finished) {
-//        
-//    }];
-    
-    [left endAppearanceTransition];
+    [UIView beginAnimations:nil context:nil];
+    [UIView animateWithDuration:0.35 animations:^{
+        
+        self.left.view.center = CGPointMake(160, 284);
+    } completion:^(BOOL finished) {
+        self.view.tag = 3;
+        
+    }];
+    [UIView commitAnimations];
+    [self.left endAppearanceTransition];
     
 }
 
@@ -80,26 +94,24 @@
     
     self.view.tag = 1;
     
-    IvyBottomViewController *btm = [[IvyBottomViewController alloc] init];
+    [self addChildViewController:self.bottom];
     
-    [self addChildViewController:btm];
+    [self.view addSubview:self.bottom.view];
     
-    [self.view addSubview:btm.view];
-    
-    [btm didMoveToParentViewController:self];
+    [self.bottom didMoveToParentViewController:self];
 
-    [btm beginAppearanceTransition:YES animated:YES];
+    [self.bottom beginAppearanceTransition:YES animated:YES];
     
     [UIView beginAnimations:nil context:nil];
     [UIView animateWithDuration:0.35 animations:^{
         
-        btm.view.center = CGPointMake(160, 284);
+        self.bottom.view.center = CGPointMake(160, 284);
     } completion:^(BOOL finished) {
         self.view.tag = 0;
-        [btm endAppearanceTransition];
+        
     }];
     [UIView commitAnimations];
-    
+    [self.bottom endAppearanceTransition];
     
 }
 

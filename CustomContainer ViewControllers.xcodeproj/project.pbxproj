@@ -469,6 +469,7 @@
 				CAE0283619D8DDD00034AF11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CAE0283719D8DDD00034AF11 /* Build configuration list for PBXNativeTarget "CustomContainer ViewControllersTests" */ = {
 			isa = XCConfigurationList;
@@ -477,6 +478,7 @@
 				CAE0283919D8DDD00034AF11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
